@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhH-Gx-0gN">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhH-Gx-0gN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-5p-VlG">
@@ -50,16 +50,18 @@
                                     <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ek-GW-bLR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cim-5v-bWq">
-                                <rect key="frame" x="0.0" y="715" width="414" height="21"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cim-5v-bWq">
+                                <rect key="frame" x="0.0" y="735" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H0B-c6-qzd" secondAttribute="bottom" constant="20" id="06B-Pj-AlQ"/>
+                            <constraint firstItem="YhH-Gx-0gN" firstAttribute="bottom" secondItem="Cim-5v-bWq" secondAttribute="bottom" id="B0b-Zc-v2o"/>
                             <constraint firstItem="YhH-Gx-0gN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EgB-cm-ys4"/>
                             <constraint firstItem="Cim-5v-bWq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Krg-q9-A9q"/>
+                            <constraint firstItem="Cim-5v-bWq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="715" id="LBv-Ew-qs7"/>
                             <constraint firstItem="YhH-Gx-0gN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rox-6Y-L6d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H0B-c6-qzd" secondAttribute="trailing" id="cMR-Sn-KXt"/>
                             <constraint firstItem="gWM-5p-VlG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eXT-Ap-WLa"/>
