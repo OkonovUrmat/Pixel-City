@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,15 +12,77 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapVC" customModule="Pixel_City" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhH-Gx-0gN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-5p-VlG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to drop a pin and view photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5J-J3-phE">
+                                        <rect key="frame" x="34" y="24.666666666666671" width="346" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="346" id="kqf-3F-FpD"/>
+                                            <constraint firstAttribute="height" constant="21" id="kyX-tC-BbY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="EaP-eK-Y6q"/>
+                                    <constraint firstItem="m5J-J3-phE" firstAttribute="centerY" secondItem="gWM-5p-VlG" secondAttribute="centerY" id="W9v-pz-2wH"/>
+                                    <constraint firstItem="m5J-J3-phE" firstAttribute="centerX" secondItem="gWM-5p-VlG" secondAttribute="centerX" id="xqj-v2-zM5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0B-c6-qzd">
+                                <rect key="frame" x="364" y="666" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3KG-C8-5AQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="Dgc-xB-K1D"/>
+                                </constraints>
+                                <state key="normal" image="locationButton"/>
+                                <connections>
+                                    <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ek-GW-bLR"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cim-5v-bWq">
+                                <rect key="frame" x="0.0" y="735" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H0B-c6-qzd" secondAttribute="bottom" constant="20" id="06B-Pj-AlQ"/>
+                            <constraint firstItem="YhH-Gx-0gN" firstAttribute="bottom" secondItem="Cim-5v-bWq" secondAttribute="bottom" id="B0b-Zc-v2o"/>
+                            <constraint firstItem="YhH-Gx-0gN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EgB-cm-ys4"/>
+                            <constraint firstItem="Cim-5v-bWq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Krg-q9-A9q"/>
+                            <constraint firstItem="Cim-5v-bWq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="715" id="LBv-Ew-qs7"/>
+                            <constraint firstItem="YhH-Gx-0gN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rox-6Y-L6d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H0B-c6-qzd" secondAttribute="trailing" id="cMR-Sn-KXt"/>
+                            <constraint firstItem="gWM-5p-VlG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eXT-Ap-WLa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YhH-Gx-0gN" secondAttribute="trailing" id="eeh-Kb-u6V"/>
+                            <constraint firstItem="gWM-5p-VlG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="t3B-WX-z9z"/>
+                            <constraint firstItem="gWM-5p-VlG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vg9-c5-lxH"/>
+                            <constraint firstItem="Cim-5v-bWq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ygL-6P-z7a"/>
+                            <constraint firstItem="Cim-5v-bWq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zDa-xM-Ht9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="YhH-Gx-0gN" id="ehA-wa-rn6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="139"/>
+            <point key="canvasLocation" x="131.8840579710145" y="138.58695652173915"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="locationButton" width="67" height="67"/>
+    </resources>
 </document>
