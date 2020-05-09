@@ -135,7 +135,6 @@
 				375777A12465A0F0005CC588 /* Frameworks */,
 				375777A22465A0F0005CC588 /* Resources */,
 				B19FCC4A5FA79C11909F4202 /* [CP] Embed Pods Frameworks */,
-				D741220CE3EE75AF74F56748 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,23 +229,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pixel-City/Pods-Pixel-City-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D741220CE3EE75AF74F56748 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pixel-City/Pods-Pixel-City-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pixel-City/Pods-Pixel-City-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pixel-City/Pods-Pixel-City-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
