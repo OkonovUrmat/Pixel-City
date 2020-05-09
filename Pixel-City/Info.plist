@@ -60,9 +60,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string></string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app requires your loaction to pull photos from Flickr</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app requires your loaction to pull photos from Flickr</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app requires your loaction to pull photos from Flickr</string>
 </dict>
 </plist>
