@@ -22,9 +22,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to drop a pin and view photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5J-J3-phE">
-                                        <rect key="frame" x="34" y="24.666666666666671" width="346" height="21"/>
+                                        <rect key="frame" x="52" y="24.666666666666671" width="310.33333333333331" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="346" id="kqf-3F-FpD"/>
                                             <constraint firstAttribute="height" constant="21" id="kyX-tC-BbY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
@@ -40,7 +39,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0B-c6-qzd">
-                                <rect key="frame" x="364" y="665" width="50" height="50"/>
+                                <rect key="frame" x="364" y="685" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3KG-C8-5AQ"/>
                                     <constraint firstAttribute="height" constant="50" id="Dgc-xB-K1D"/>
@@ -50,9 +49,12 @@
                                     <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ek-GW-bLR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cim-5v-bWq">
-                                <rect key="frame" x="0.0" y="715" width="414" height="1"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cim-5v-bWq">
+                                <rect key="frame" x="0.0" y="735" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="rua-lu-C5m"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -60,7 +62,6 @@
                             <constraint firstItem="Cim-5v-bWq" firstAttribute="top" secondItem="H0B-c6-qzd" secondAttribute="bottom" id="06B-Pj-AlQ"/>
                             <constraint firstItem="YhH-Gx-0gN" firstAttribute="bottom" secondItem="Cim-5v-bWq" secondAttribute="bottom" id="Aa6-Li-dBc"/>
                             <constraint firstItem="YhH-Gx-0gN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EgB-cm-ys4"/>
-                            <constraint firstItem="Cim-5v-bWq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="715" id="LBv-Ew-qs7"/>
                             <constraint firstItem="YhH-Gx-0gN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rox-6Y-L6d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H0B-c6-qzd" secondAttribute="trailing" id="cMR-Sn-KXt"/>
                             <constraint firstItem="gWM-5p-VlG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eXT-Ap-WLa"/>
@@ -75,8 +76,8 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="YhH-Gx-0gN" id="ehA-wa-rn6"/>
-                        <outlet property="mapViewBottomContraint" destination="Aa6-Li-dBc" id="PCV-Oh-6jA"/>
                         <outlet property="pullUpView" destination="Cim-5v-bWq" id="Ee6-39-2II"/>
+                        <outlet property="pullUpViewHeightConstraint" destination="rua-lu-C5m" id="pzL-Yh-MTv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
