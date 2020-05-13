@@ -75,6 +75,15 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    func addProgreesLbl() {
+        progressLbl = UILabel()
+        progressLbl?.frame = CGRect(x: (screenSize.width / 2) - 100, y: 175, width:  200, height: 40)
+        progressLbl?.font = UIFont(name: "Avenir Next", size: 18)
+        progressLbl?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        progressLbl?.textAlignment = .center
+        pullUpView.addSubview(progressLbl!)
+    }
+    
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
             centerMapOnUserLocation()
@@ -109,9 +118,11 @@ extension MapVC: MKMapViewDelegate {
     @objc func dropPin(sender: UITapGestureRecognizer) {
         removePin()
         removeSpinner()
+        
         animateViewUp()
         addSwipe()
         addSpinner()
+        addProgreesLbl()
         
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
