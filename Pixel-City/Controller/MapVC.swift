@@ -63,10 +63,16 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     func addSpinner() {
         spinner = UIActivityIndicatorView()
         spinner?.center = CGPoint(x: (screenSize.width / 2) - ((spinner?.frame.width)! / 2), y: 150)
-        spinner?.style = .whiteLarge
+        spinner?.style = .large
         spinner?.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         spinner?.startAnimating()
         pullUpView.addSubview(spinner!)
+    }
+    
+    func removeSpinner() {
+        if spinner != nil {
+            spinner?.removeFromSuperview()
+        }
     }
     
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
@@ -102,6 +108,7 @@ extension MapVC: MKMapViewDelegate {
     
     @objc func dropPin(sender: UITapGestureRecognizer) {
         removePin()
+        removeSpinner()
         animateViewUp()
         addSwipe()
         addSpinner()
