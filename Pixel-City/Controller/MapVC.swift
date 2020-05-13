@@ -84,6 +84,12 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         pullUpView.addSubview(progressLbl!)
     }
     
+    func removeProgressLbl() {
+        if progressLbl != nil {
+            progressLbl?.removeFromSuperview()
+        }
+    }
+    
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
             centerMapOnUserLocation()
@@ -118,6 +124,7 @@ extension MapVC: MKMapViewDelegate {
     @objc func dropPin(sender: UITapGestureRecognizer) {
         removePin()
         removeSpinner()
+        removeProgressLbl()
         
         animateViewUp()
         addSwipe()
