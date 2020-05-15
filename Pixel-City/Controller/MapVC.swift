@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
+import AlamofireImage
 
 class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
@@ -27,7 +29,9 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
     var flowLayout = UICollectionViewFlowLayout()
     var collectionView: UICollectionView?
-
+    
+    var imageUrlArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -152,11 +156,34 @@ extension MapVC: MKMapViewDelegate {
         
         let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
+        
+        retrieveUrls(forAnnotation: annotation) { (true) in
+            print(self.imageUrlArray)
+        }
     }
     
     func removePin() {
         for annotation in mapView.annotations {
             mapView.removeAnnotation(annotation)
+        }
+    }
+    
+    func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping (_ status: Bool) -> ()) {
+        imageUrlArray = []
+        AF.request(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumbersOfPhotos: 40)).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                guard let json = value as? Dictionary<String, AnyObject> else { return }
+                let photosDict = json["photos"] as! Dictionary<String, AnyObject>
+                let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>]
+                for photo in photosDictArray {
+                    let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_m_d.jpg"
+                    self.imageUrlArray.append(postUrl)
+                }
+                handler(true)
+            case .failure( _):
+                handler(false)
+            }
         }
     }
 }
