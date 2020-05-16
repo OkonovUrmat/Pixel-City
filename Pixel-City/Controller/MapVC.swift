@@ -31,6 +31,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var collectionView: UICollectionView?
     
     var imageUrlArray = [String]()
+    var imageArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -183,6 +184,26 @@ extension MapVC: MKMapViewDelegate {
                 handler(true)
             case .failure( _):
                 handler(false)
+            }
+        }
+    }
+    
+    func retrieveImages(handler: @escaping (_ status: Bool) -> ()) {
+        imageArray = []
+        
+        for url in imageUrlArray {
+            AF.request(url).responseImage { (response) in
+                switch response.result {
+                case .success(let value):
+                    self.imageArray.append(value)
+                    self.progressLbl?.text = "\(self.imageArray.count)/40 IMAGES DOWNLOADED"
+                    
+                    if self.imageArray.count == self.imageUrlArray.count {
+                        handler(true)
+                    }
+                case .failure( _):
+                    handler(false)
+                }
             }
         }
     }
