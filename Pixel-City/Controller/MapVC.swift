@@ -63,6 +63,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func animateViewUp() {
+        cancelAllSessions()
         pullUpViewHeightConstraint.constant = 300
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -141,6 +142,7 @@ extension MapVC: MKMapViewDelegate {
         removePin()
         removeSpinner()
         removeProgressLbl()
+        cancelAllSessions()
         
         animateViewUp()
         addSwipe()
@@ -213,6 +215,13 @@ extension MapVC: MKMapViewDelegate {
                     handler(false)
                 }
             }
+        }
+    }
+    
+    func cancelAllSessions() {
+        AF.session.getTasksWithCompletionHandler { (sessioDataTask, uploadData, downloadData) in
+            sessioDataTask.forEach({ $0.cancel() })
+            downloadData.forEach({ $0.cancel() })
         }
     }
 }
