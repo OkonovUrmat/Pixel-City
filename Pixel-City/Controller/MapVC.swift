@@ -144,6 +144,11 @@ extension MapVC: MKMapViewDelegate {
         removeProgressLbl()
         cancelAllSessions()
         
+        imageUrlArray = []
+        imageArray = []
+        
+        collectionView?.reloadData()
+        
         animateViewUp()
         addSwipe()
         addSpinner()
@@ -166,7 +171,7 @@ extension MapVC: MKMapViewDelegate {
                     if finished {
                         self.removeSpinner()
                         self.removeProgressLbl()
-                        //reload collectionView
+                        self.collectionView?.reloadData()
                     }
                 }
             }
@@ -180,7 +185,6 @@ extension MapVC: MKMapViewDelegate {
     }
     
     func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping (_ status: Bool) -> ()) {
-        imageUrlArray = []
         AF.request(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumbersOfPhotos: 40)).responseJSON { (response) in
             switch response.result {
             case .success(let value):
@@ -199,8 +203,6 @@ extension MapVC: MKMapViewDelegate {
     }
     
     func retrieveImages(handler: @escaping (_ status: Bool) -> ()) {
-        imageArray = []
-        
         for url in imageUrlArray {
             AF.request(url).responseImage { (response) in
                 switch response.result {
