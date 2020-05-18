@@ -8,7 +8,7 @@ Your iOS project. Unit-tested on iOS 8.x, 9.x, 10.x -- see.
 
 ## Installation
 
-Either clone this repo and add the project to your Xcode workspace, use [CocoaPods](http://cocoapods.org) or [Smack](https://github.com/OkonovUrmat/Smack).
+Either clone this repo and add the project to your Xcode workspace, use [CocoaPods](http://cocoapods.org) or [Pixel-City](https://github.com/OkonovUrmat/Pixel-City).
 
 
 ## Before start 
